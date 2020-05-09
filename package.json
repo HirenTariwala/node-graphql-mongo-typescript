@@ -5,6 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
+    "start:dev": "node --inspect=5858 -r ts-node/register ./src/app.ts",
     "start:watch": "nodemon",
     "build": "tsc",
     "fix-lint": "./node_modules/.bin/prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"

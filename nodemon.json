@@ -1,6 +1,7 @@
 {
     "env": {
-      "NODE_ENV": "development"
+      "NODE_ENV": "development",
+      "PORT": 8080 
     },
     "ignore": [
         "**/*.test.ts",
@@ -11,6 +12,6 @@
       "watch": [
         "src"
       ],
-      "exec": "npm start",
+      "exec": "npm run start:dev",
       "ext": "ts"
 }

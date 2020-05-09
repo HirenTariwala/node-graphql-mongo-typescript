@@ -14,9 +14,9 @@ mongoose
   .connect(process.env.MONGO_HOST)
   .then(() => {
     /**
-     * Expose Port according NODE_ENV
+     * Expose Port
      */
-    const port = process.env.NODE_ENV === 'development' ? 8080 : 80;
+    const port = process.env.PORT || 8080;
 
     /**
      * Express app
@@ -55,7 +55,7 @@ mongoose
     });
 
     /**
-     * Started server on 8080 port
+     * Started server on port
      */
     app.listen(port, () =>
       console.log(`Node Graphql API listening on port ${port}!`)
