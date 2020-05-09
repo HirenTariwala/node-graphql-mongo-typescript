@@ -14,9 +14,9 @@ mongoose
   .connect(process.env.MONGO_HOST)
   .then(() => {
     /**
-     * Port
+     * Expose Port according NODE_ENV
      */
-    const port = 80;
+    const port = process.env.NODE_ENV === 'development' ? 8080 : 80;
 
     /**
      * Express app
@@ -49,6 +49,10 @@ mongoose
         graphiql: true,
       })
     );
+
+    app.use('/', (req: any, res: any) => {
+      res.send('Hello App started pelase visit /graphql route');
+    });
 
     /**
      * Started server on 8080 port
