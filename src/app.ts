@@ -39,6 +39,13 @@ mongoose
     app.use(isAuth);
 
     /**
+     * Root url for app
+     */
+    app.use('/', (req: any, res: any) => {
+      res.send('Hello App started pelase visit /graphql route');
+    });
+
+    /**
      * Main root enapoint for qrpahql
      */
     app.use(
@@ -49,13 +56,6 @@ mongoose
         graphiql: true,
       })
     );
-
-    /**
-     * Root url for app
-     */
-    app.use('/', (req: any, res: any) => {
-      res.send('Hello App started pelase visit /graphql route');
-    });
 
     /**
      * Started server on port
