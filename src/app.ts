@@ -50,6 +50,9 @@ mongoose
       })
     );
 
+    /**
+     * Root url for app
+     */
     app.use('/', (req: any, res: any) => {
       res.send('Hello App started pelase visit /graphql route');
     });
