@@ -12,7 +12,6 @@ import { getAllEventByUserId } from '../Event/Event.controller';
 export const getUserCommon = (user: any): IUser => {
   return {
     ...user._doc,
-    password: null,
     events: () => getAllEventByUserId(user._doc._id),
   };
 };

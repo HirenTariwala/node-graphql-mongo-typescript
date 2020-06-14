@@ -53,5 +53,12 @@
       "pre-commit": "lint-staged"
     }
   },
-  "keywords": ["Node", "GraphQl", "MongoDb", "Mongoose", "Express", "TypeScript"]
+  "keywords": [
+    "Node",
+    "GraphQl",
+    "MongoDb",
+    "Mongoose",
+    "Express",
+    "TypeScript"
+  ]
 }

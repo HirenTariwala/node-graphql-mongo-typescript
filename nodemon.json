@@ -1,17 +1,10 @@
 {
-    "env": {
-      "NODE_ENV": "development",
-      "PORT": 8080 
-    },
-    "ignore": [
-        "**/*.test.ts",
-        "**/*.spec.ts",
-        ".git",
-        "node_modules"
-      ],
-      "watch": [
-        "src"
-      ],
-      "exec": "npm run start:dev",
-      "ext": "ts"
+  "env": {
+    "NODE_ENV": "development",
+    "PORT": 8080
+  },
+  "ignore": ["**/*.test.ts", "**/*.spec.ts", ".git", "node_modules"],
+  "watch": ["src"],
+  "exec": "npm run start:dev",
+  "ext": "ts"
 }
