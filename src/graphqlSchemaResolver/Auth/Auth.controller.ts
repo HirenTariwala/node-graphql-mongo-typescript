@@ -46,21 +46,17 @@ export const createUser = (user: IUserInput): Promise<IUser | Error | void> => {
  * @param param
  */
 export const login = ({ username, password }: ILoginCred): Promise<IAuth> => {
-  return User.findOne({ username }).then((user: any) => {
-    if (!user) {
-      throw new Error('Invalid Username or password!');
-    }
-    return bcrypt
-      .compare(password, user._doc.password)
-      .then((isEqual: boolean) => {
-        if (!isEqual) {
-          throw new Error('Invalid Username or password!');
-        }
-        return {
-          token: jwt.sign({ userId: user.id }, process.env.WEBTOKENSECRET, {
-            expiresIn: '1h',
-          }),
-        };
-      });
-  });
+  const user = await User.findOne({ username }).select('+password');
+  if (!user) {
+    throw new Error('Invalid Username or Password!');
+  }
+  const isEqual = await bcrypt.compare(password, user.password);
+  if (!isEqual) {
+    throw new Error('Invalid Username or Password!');
+  }
+  return {
+    token: jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
+      expiresIn: '1h',
+    }),
+  };
 };
