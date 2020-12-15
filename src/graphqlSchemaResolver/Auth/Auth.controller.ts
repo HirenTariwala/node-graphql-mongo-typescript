@@ -45,7 +45,7 @@ export const createUser = (user: IUserInput): Promise<IUser | Error | void> => {
  * Login registred user
  * @param param
  */
-export const login = ({ username, password }: ILoginCred): Promise<IAuth> => {
+export const login = ({ username, password }: ILoginCred) => {
   const user = await User.findOne({ username }).select('+password');
   if (!user) {
     throw new Error('Invalid Username or Password!');
